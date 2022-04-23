@@ -41,7 +41,6 @@ const ResultSchema = new mongoose.Schema({
         type: Array,
     }
 });
-ResultSchema.index({title: 'text'});
 const Result= mongoose.model('Result', ResultSchema);
 
 module.exports = Result
