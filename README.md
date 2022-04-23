@@ -13,6 +13,12 @@ Você deverá desenvolver as seguintes rotas:
 
 - [x] `[GET]/articles/{id}: Obter a informação somente de um artigo`
 
+- [x] `[POST]/articles/: Adicionar um novo artigo`
+
+- [x] `[PUT]/articles/{id}: Atualizar um artigo baseado no id`
+
+- [x] `[DELETE]/articles/{id}: Remover um artigo baseado no id`
+
 #### Obrigatório 2: 
 - [x] Para alimentar o seu banco de dados você deve criar um script para armazenar os dados de todos os artigos na Space Flight News API.
 
@@ -22,16 +28,8 @@ Você deverá desenvolver as seguintes rotas:
 #### Diferencial 1:
 - [ ] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
 ### Diferencial 2:
-- [ ] Configurar um sistema de alerta se houver algum falha durante a sincronização dos artigos;
+- [x] Configurar um sistema de alerta se houver algum falha durante a sincronização dos artigos;
 #### Diferencial 3:  
 - [ ] Descrever a documentação da API utilizando o conceito de Open API 3.0;
 #### Diferencial 4:
 - [ ] Escrever Unit Tests para os endpoints da API;
-#### Diferencial 5:
-Escrever rotas para criar, atualizar e deletar artigos;
-
-`[POST]/articles/: Adicionar um novo artigo`
-
-`[PUT]/articles/{id}: Atualizar um artigo baseado no id`
-
-`[DELETE]/articles/{id}: Remover um artigo baseado no id`
