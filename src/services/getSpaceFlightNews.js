@@ -2,8 +2,8 @@ const fetch= require('cross-fetch')
 const NewsArticles = require('../models/News')
 
 const getNewsInfo = async () => {
-  const baseUrl = "https://api.spaceflightnewsapi.net/v3/articles"  
-  let limitPages = baseUrl.length;
+  const baseUrl = "https://api.spaceflightnewsapi.net/v3/articles" 
+  let countLength= baseUrl.length; 
   let countInsert = 1;
     try {
         const index = await NewsArticles.find()
@@ -31,21 +31,17 @@ const getNewsInfo = async () => {
             newArticle.publishedAt = data.publishedAt;
             newArticle.updatedAt = data.updatedAt;
             newArticle.featured = data.featured;
-            newArticle.lauches = data.launches.map((e) => {
-              lauche.push(e);
-            });  
-            newArticle.events = data.events.map((e) => {
-              event.push(e)
-            }); 
+            newArticle.lauches = data.launches.map((e) => {lauche.push(e)});  
+            newArticle.events = data.events.map((e) => {event.push(e)}); 
             
             await newArticle.save();
     
             console.log(`Total de ${countInsert} Artigos incluidos no banco`);   
+            
+            countLength--;
+            countInsert++;    
     
-            limitPages;
-            countInsert++;
-    
-            if( limitPages === 0) {
+            if(countLength === 0) {
               console.log('Inserções no banco concluídas');
             }        
           });  
