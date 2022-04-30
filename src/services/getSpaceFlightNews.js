@@ -1,9 +1,10 @@
 const fetch= require('cross-fetch')
 const NewsArticles = require('../models/News')
+const api = require('../constants/index')
 
 const getNewsInfo = async () => {
-  const baseUrl = "https://api.spaceflightnewsapi.net/v3/articles" 
-  let countLength= baseUrl.length; 
+  
+  let countLength= api.length; 
   let countInsert = 1;
     try {
         const index = await NewsArticles.find()
@@ -11,7 +12,7 @@ const getNewsInfo = async () => {
         if(index.length === 0) {
           console.log('Populando banco de Dados, espere um momento...')
 
-          const getData = await fetch(`${baseUrl}?_limit=${baseUrl.length}`)
+          const getData = await fetch(`${api}?_limit=${api.length}`)
           
           if( getData.status >= 400 ) {
             throw new Error('Erro na requisição');
