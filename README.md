@@ -26,10 +26,10 @@ Você deverá desenvolver as seguintes rotas:
 - [x] Além disso você precisa desenvolver um CRON para ser executado diariamente às 9h e armazenar em seu os novos artigos ao seu banco de dados. (Para essa tarefa você poderá alterar o seu modelo de dados)
 
 #### Diferencial 1:
-- [X] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
+- [ ] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
 ### Diferencial 2:
-- [X] Configurar um sistema de alerta se houver algum falha durante a sincronização dos artigos;
+- [x] Configurar um sistema de alerta se houver algum falha durante a sincronização dos artigos;
 #### Diferencial 3:  
-- [x] Descrever a documentação da API utilizando o conceito de Open API 3.0;
+- [ ] Descrever a documentação da API utilizando o conceito de Open API 3.0;
 #### Diferencial 4:
 - [ ] Escrever Unit Tests para os endpoints da API;
