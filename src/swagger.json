@@ -1,0 +1,23 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Back-end Challenge 🏅 2021 - Space Flight News",
+        "description": "Nesse desafio você deverá desenvolver uma REST API que utilizará os dados do projeto Space Flight News, uma API pública com informações relacionadas a voos espaciais. O projeto a ser desenvolvido por você tem como objetivo criar a API permitindo assim a conexão de outras aplicações.",
+        "termsOfService": "http://localhost:3333/terms",
+        "contact": {
+            "email": "heinrickcostta@gmail.com"
+        },
+    "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3333",
+            "description": "teste api"
+        },
+        {
+            "url": "http://localhost:3333",
+            "description": "production api"
+        }
+    ]
+
+}
