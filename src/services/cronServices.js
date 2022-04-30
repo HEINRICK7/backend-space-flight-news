@@ -1,27 +1,29 @@
 const fetch = require("cross-fetch")
 const cron = require("node-cron")
 
+const api = require('../constants/index')
+
 const EmailService = require("./emailServices")
 
 const NewsArticles = require("../models/News")
 
 const CronArticle = cron.schedule('*/05 * * * * *', async () => {
-    console.log("cron article")
-    let countInsertionBefore = await NewsArticles.count({ id: {$gt: 0} });
+    console.log('Verificando atualizações na api...')
+    let databaseLength = await NewsArticles.estimatedDocumentCount();
+    
     const { id } = await NewsArticles.findOne({ id: {$gt: 0} }).sort({ id: -1 })
-    
-    const apiUrl = `https://api.spaceflightnewsapi.net/v3/articles`
-    let countInsertionAfter = apiUrl.length
-    
-    const getDataArticlesApi = await fetch(`${apiUrl}?_limit=${apiUrl.length}`)
+ 
+    let baseUrlLength = api.length
+    const getDataArticlesApi = await fetch(`${api}?_limit=${api.length}`)
 
-    if(getDataArticlesApi.status === 200) {
-
+     console.log(databaseLength, baseUrlLength,id)
+     
+    
     try {
       const response = await getDataArticlesApi.json()
-
-      if(countInsertionAfter > countInsertionBefore) {
-        
+      
+      if(baseUrlLength > databaseLength) {
+       
         response
         .filter(obj => obj.id > id)
         .map(async (data) => {
@@ -52,11 +54,7 @@ const CronArticle = cron.schedule('*/05 * * * * *', async () => {
       console.log(err)
       return;
     }
-  }else if(getDataArticlesApi.status >= 400) {
-    
-    console.log('error na requisição, enviando email com detalhes',getDataArticlesApi.status)
-    //EmailService()
-  }
+  
   });
 
 module.exports = CronArticle
